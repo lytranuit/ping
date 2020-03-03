@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  div(class='container')
+    div(class='row')
+      h1(class='col-6') #{title}
+      div(class='col-4')
+        input(class='form-control input_host' placeholder='Host')
+      div(class='col-2')
+        button(class='btn btn-primary add_host') Add
+      //Table
+      div(class='col-md-8 col-12')
+        div(class='table-responsive')
+          table(class='table-striped col-12')
+            thead
+              tr
+                th Host
+                th Time
+                th Status
+                th Remove
+            tbody
+              each val,key in data_ping
+                tr(data-host=val.host)
+                  td #{val.host}
+                  td #{val.time_change}
+                  td
+                    if val.alive
+                      span(class='text-success') Alive
+                    else
+                      span(class='text-danger') Die
+                  td
+                    button(class='btn btn-danger btn-sm remove_host' data-host=val.host) Remove
+      div(class='col-md-4 col-12')
+        textarea(class='form-control' name="" cols="30" rows="10")
+block scripts
+  script(src='/javascripts/main.js')

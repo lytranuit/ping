@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='node_modules/bootstrap/dist/css/bootstrap.css') 
+
+  body
+    block content
+    
+    script(src='node_modules/jquery/dist/jquery.min.js') 
+    script(src='node_modules/bootstrap/dist/js/bootstrap.bundle.min.js') 
+    script(src='node_modules/socket.io-client/dist/socket.io.js') 
+    block scripts
